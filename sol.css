@@ -1,0 +1,140 @@
+/* Global Styles */
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: Arial, sans-serif;
+  font-size: 16px;
+  line-height: 1.5;
+  color: #333;
+  background-color: #f9f9f9;
+}
+
+h1, h2 {
+  font-weight: bold;
+  margin-bottom: 10px;
+}
+
+h1 {
+  font-size: 24px;
+}
+
+h2 {
+  font-size: 18px;
+}
+
+/* Header Section */
+
+header {
+  background-color: rgb(255, 136, 43);
+  color: #fff;
+  padding: 20px;
+  text-align: center;
+}
+
+header h1 {
+  margin-bottom: 0;
+}
+
+/* Cafe Selection Section */
+
+#cafe-selection {
+  margin: 20px;
+}
+
+#cafe-list {
+  width: 100%;
+  padding: 10px;
+  font-size: 16px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+/* Food Selection Section */
+
+#food-selection {
+  margin: 20px;
+}
+
+#food-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+#food-list li {
+  margin-bottom: 10px;
+}
+
+#food-list input[type="checkbox"] {
+  margin-right: 10px;
+}
+
+/* Payment Section */
+
+#payment {
+  margin: 20px;
+}
+
+#payment-form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 20px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+#payment-form label {
+  margin-bottom: 10px;
+}
+
+#payment-form input[type="text"] {
+  width: 100%;
+  padding: 10px;
+  font-size: 16px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  margin-bottom: 20px;
+}
+
+#payment-form input[type="submit"] {
+  background-color: #333;
+  color: #fff;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+#payment-form input[type="submit"]:hover {
+  background-color: #444;
+}
+
+/* Order Summary Section */
+
+#order-summary {
+  margin: 20px;
+  padding: 20px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  background-color: #f0f0f0;
+}
+
+#order-summary h2 {
+  margin-top: 0;
+}
+
+#order-summary p {
+  margin-bottom: 20px;
+}
+
+#unique-id {
+  font-weight: bold;
+  font-size: 18px;
+  color: #333;
+}

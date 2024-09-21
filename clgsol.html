@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="sol.css">
+    
+</head>
+<body>
+    <!-- Index.html -->
+
+<!-- Header Section -->
+<header>
+    <h1>LPU Food Management Website</h1>
+  </header>
+  
+  <!-- Cafe Selection Section -->
+  <section id="cafe-selection">
+    <h2>Select a Block:</h2>
+    <select id="cafe-list">
+      <option value="">Select Block number</option>
+      <option value="cafe1">Block 25</option>
+      <option value="cafe2">Block 26</option>
+      <option value="cafe3">Block 27</option>
+      <option value="cafe4">Block 28</option>
+    </select>
+  </section>
+  
+  <!-- Food Selection Section -->
+  <section id="food-selection">
+    <h2>Select your Food:</h2>
+    <ul id="food-list">
+      <li>
+        <input type="checkbox" id="food1" name="food">
+        <label for="food1">Food 1</label>
+      </li>
+      <li>
+        <input type="checkbox" id="food2" name="food">
+        <label for="food2">Food 2</label>
+      </li>
+      <li>
+        <input type="checkbox" id="food3" name="food">
+        <label for="food3">Food 3</label>
+      </li>
+      <li></li>
+        <input type="checkbox" id="food3" name="food">
+        <label for="food3">Food 4</label>
+      </li>
+    </ul>
+  </section>
+  
+  
+  <!-- Payment Section -->
+<!-- Payment Section -->
+<!-- Payment Section -->
+<section id ="payment">
+    <h2>Make Payment:</h2>
+    <form id="payment-form">
+      <label for="card-number">Card Number:</label>
+      <input type="text" id="card-number" name="card-number">
+      <br>
+      <label for="expiration-date">Expiration Date:</label>
+      <input type="text" id="expiration-date" name="expiration-date">
+      <br>
+      <label for="cvv">CVV:</label>
+      <input type="text" id="cvv" name="cvv">
+      <br>
+      <label for="upi-id">UPI ID:</label>
+      <input type="text" id="upi-id" name="upi-id">
+      <br>
+      <input type="radio" id="card-payment" name="payment-method" checked>
+      <label for="card-payment">Pay by Card</label>
+      <br>
+      <input type="radio" id="upi-payment" name="payment-method">
+      <label for="upi-payment">Pay through UPI</label>
+      <br>
+      <input type="radio" id="paytm-payment" name="payment-method">
+      <label for="paytm-payment">Pay through Paytm UPI</label>
+      <br>
+      <input type="radio" id="cash-payment" name="payment-method">
+      <label for="cash-payment">Pay by Cash</label>
+      <br>
+      <input type="submit" value="Make Payment">
+    </form>
+    <!-- Order Summary Section -->
+<section id="order-summary">
+    <h2>Order Summary:</h2>
+    <p id="order-details"></p>
+    <p id="unique-id"></p>
+    <p id="total-price"></p> <!-- Add total price element -->
+  </section>
+  
+  
+  <!-- JavaScript Code -->
+  <script>
+    const cafeList = document.getElementById('cafe-list');
+    const foodList = document.getElementById('food-list');
+    const paymentForm = document.getElementById('payment-form');
+    const orderSummary = document.getElementById('order-summary');
+  
+    // Function to generate unique ID
+    function generateUniqueId() {
+      const uuid = Math.random().toString(36).substr(2, 9);
+      return uuid;
+    }
+  
+    // Function to display order summary
+    // ...
+
+// Function to display order summary
+// Function to display order summary
+function displayOrderSummary(cafe, food, payment) {
+    const orderDetails = `You have ordered ${food} from ${cafe}.`;
+    const totalPrice = calculateTotalPrice(food); // Calculate total price
+    const uniqueId = generateUniqueId();
+    document.getElementById('order-details').innerHTML = orderDetails;
+    document.getElementById('unique-id').innerHTML = `Your unique ID is: ${uniqueId}`;
+    document.getElementById('total-price').innerHTML = `Total Price: ₹ ${totalPrice}`; // Display total price
+  }
+  
+  // Function to calculate total price
+  function calculateTotalPrice(food) {
+    let totalPrice = 0;
+    food.forEach((item) => {
+      const foodPrice = getFoodPrice(item); // Get price of each food item
+      totalPrice += foodPrice;
+    });
+    return totalPrice;
+  }
+  
+  // Function to get price of each food item
+  function getFoodPrice(foodId) {
+    const foodPrices = {
+      food1: 100,
+      food2: 150,
+      food3: 200,
+      food4: 250,
+    };
+    return foodPrices[foodId];
+  }
+  
+    // Event listener for cafe selection
+    cafeList.addEventListener('change', (e) => {
+      const selectedCafe = e.target.value;
+      // Display food options based on selected cafe
+    });
+  
+    // Event listener for food selection
+    foodList.addEventListener('change', (e) => {
+      const selectedFood = [];
+      const foodOptions = foodList.querySelectorAll('input[type="checkbox"]');
+      foodOptions.forEach((option) => {
+        if (option.checked) {
+          selectedFood.push(option.id);
+        }
+      });
+      // Display payment options
+    });
+  
+    // Event listener for payment submission
+    // ...
+
+// Event listener for payment submission
+paymentForm.addEventListener('submit', (e) => {
+    e.preventDefault();
+    const selectedCafe = cafeList.value;
+    const selectedFood = [];
+    const foodOptions = foodList.querySelectorAll('input[type="checkbox"]');
+    foodOptions.forEach((option) => {
+      if (option.checked) {
+        selectedFood.push(option.id);
+      }
+    });
+    const paymentMethod = document.querySelector('input[name="payment-method"]:checked').id;
+    let paymentDetails;
+    if (paymentMethod === 'card-payment') {
+      paymentDetails = {
+        cardNumber: document.getElementById('card-number').value,
+        expirationDate: document.getElementById('expiration-date').value,
+        cvv: document.getElementById('cvv').value,
+      };
+    } else if (paymentMethod === 'upi-payment') {
+      paymentDetails = {
+        upiId: document.getElementById('upi-id').value,
+      };
+    } else if (paymentMethod === 'paytm-payment') {
+      // Initialize Paytm JS Checkout
+      const config = {
+        "root": "",
+        "flow": "DEFAULT",
+        "data": {
+          "orderId": "", /* update order id */
+          "token": "", /* update token value */
+          "tokenType": "TXN_TOKEN",
+          "amount": "" /* update amount */
+        },
+        "handler": {
+          "notifyMerchant": function(eventName, data) {
+            console.log("notifyMerchant handler function called");
+            console.log("eventName => ", eventName);
+            console.log("data => ", data);
+          }
+        }
+      };
+      window.Paytm.CheckoutJS.onLoad(function excecuteAfterCompleteLoad() {
+        window.Paytm.CheckoutJS.init(config).then(function onSuccess() {
+          // after successfully updating configuration, invoke JS Checkout
+          window.Paytm.CheckoutJS.invoke();
+        }).catch(function onError(error) {
+          console.log("error => ", error);
+        });
+      });
+    } else if (paymentMethod === 'cash-payment') {
+      paymentDetails = {
+        paymentMethod: 'cash',
+      };
+    }
+    displayOrderSummary(selectedCafe, selectedFood, paymentDetails);
+  });
+  </script>
+</body>
+</html>
